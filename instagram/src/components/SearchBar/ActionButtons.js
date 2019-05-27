@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ActionButtons = (props) => {
   return (
-    <div className='action-buttons'>
-      <FontAwesomeIcon icon={['far', 'compass']} />
-      <FontAwesomeIcon icon={['far', 'heart']} />
-      <FontAwesomeIcon icon={['far', 'user']} />
+    <div className='action'>
+      <FontAwesomeIcon className='icon' icon={['far', 'compass']} />
+      <FontAwesomeIcon className='icon' icon={['far', 'heart']} />
+      <FontAwesomeIcon className='icon' icon={['far', 'user']} />
     </div>
   );
 };

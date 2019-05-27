@@ -1,5 +1,6 @@
 import React from 'react';
 import Branding from './Branding';
+import SearchForm from './SearchForm';
 import ActionButtons from './ActionButtons';
 
 class SearchBar extends React.Component {
@@ -10,8 +11,11 @@ class SearchBar extends React.Component {
   render() {
     return (
       <header className='search-bar'>
-        <Branding />
-        <ActionButtons />
+        <div className='container'>
+          <Branding />
+          <SearchForm />
+          <ActionButtons />
+        </div>
       </header>
     );
   }
