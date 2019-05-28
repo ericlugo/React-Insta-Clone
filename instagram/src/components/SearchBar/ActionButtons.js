@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ActionButtons = (props) => {
+const actionButtons = (props) => {
   return (
     <div className='action'>
       <FontAwesomeIcon className='icon' icon={['far', 'compass']} />
@@ -11,4 +11,4 @@ const ActionButtons = (props) => {
   );
 };
 
-export default ActionButtons;
+export default actionButtons;

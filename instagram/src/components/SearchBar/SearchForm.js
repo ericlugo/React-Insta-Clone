@@ -1,7 +1,6 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const SearchForm = (props) => {
+const searchForm = (props) => {
   return (
     <div className='search'>
       <form>
@@ -11,4 +10,4 @@ const SearchForm = (props) => {
   );
 };
 
-export default SearchForm;
+export default searchForm;

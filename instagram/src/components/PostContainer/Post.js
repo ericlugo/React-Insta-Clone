@@ -1,22 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PostHeader from './postHeader';
+import PostHeader from './PostHeader';
 import CommentSection from '../CommentSection/CommentSection';
+import LikeSection from './LikeSection';
 
-const Post = (props) => {
-  let postData = props.post;
-  return (
-    <section className='card post'>
-      <PostHeader thumbnailUrl={props.post.thumbnailUrl} username={postData.username} />
-      <img src={props.post.imageUrl} alt='content' className='post-image' />
-      <CommentSection likes={props.post.likes} timestamp={props.post.timestamp} comments={props.post.comments} />
-    </section>
-  );
-};
+class Post extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: props.post.likes,
+    };
+  }
+  incrementLikes = () => {
+    let likes = this.state.likes + 1;
+    this.setState({ likes });
+  };
+  render() {
+    return (
+      <section className='card post'>
+        <PostHeader thumbnailUrl={this.props.post.thumbnailUrl} username={this.props.post.username} />
+        <img src={this.props.post.imageUrl} alt='content' className='post-image' />
+        <LikeSection incrementLikes={this.incrementLikes} likes={this.state.likes} />
+        <CommentSection comments={this.props.post.comments} timestamp={this.props.post.timestamp} />
+      </section>
+    );
+  }
+}
 
 Post.propTypes = {
-  postData: PropTypes.shape({
-    id: PropTypes.string,
+  post: PropTypes.shape({
     username: PropTypes.string,
     thumbnailUrl: PropTypes.string,
     imageUrl: PropTypes.string,
@@ -24,7 +36,6 @@ Post.propTypes = {
     timestamp: PropTypes.string,
     comments: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string,
         username: PropTypes.string,
         text: PropTypes.string,
       }),

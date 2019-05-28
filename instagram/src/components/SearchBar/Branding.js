@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Branding = (props) => {
+const branding = (props) => {
   return (
     <div className='branding'>
       <FontAwesomeIcon className='icon' icon={['fab', 'instagram']} />
@@ -10,4 +10,4 @@ const Branding = (props) => {
   );
 };
 
-export default Branding;
+export default branding;

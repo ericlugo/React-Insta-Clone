@@ -5,7 +5,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faCompass, faHeart, faUser, faComment, faShareSquare, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faSearch, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-import SearchBar from './components/SearchBar/SearchBar';
+import SearchBar from './components/SearchBar/searchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './assets/dummy-data';
 import './App.sass';
@@ -27,16 +27,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      posts: dummyData,
+      posts: [],
     };
   }
+  componentDidMount() {
+    this.setState({
+      posts: dummyData,
+    });
+  }
   render() {
-    // console.log(dummyData);
-    // console.log(this.state.posts);
     return (
       <div className='App'>
-        <SearchBar /* key='searchBar' */ />
-        <PostContainer /* key='postContainer' */ posts={this.state.posts} />
+        <SearchBar />
+        <PostContainer posts={this.state.posts} />
       </div>
     );
   }

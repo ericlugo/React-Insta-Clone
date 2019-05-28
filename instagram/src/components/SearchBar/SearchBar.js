@@ -1,9 +1,9 @@
 import React from 'react';
-import Branding from './Branding';
-import SearchForm from './SearchForm';
-import ActionButtons from './ActionButtons';
+import Branding from './branding';
+import SearchForm from './searchForm';
+import ActionButtons from './actionButtons';
 
-class SearchBar extends React.Component {
+class searchBar extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -21,4 +21,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default searchBar;
