@@ -5,7 +5,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faCompass, faHeart, faUser, faComment, faShareSquare, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faSearch, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-import SearchBar from './components/SearchBar/searchBar';
+import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './assets/dummy-data';
 import './App.sass';
@@ -27,6 +27,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      filter: '',
       posts: [],
     };
   }
@@ -35,11 +36,18 @@ class App extends React.Component {
       posts: dummyData,
     });
   }
+  handleInput = (event) => {
+    this.setState({ filter: event.target.value });
+  };
+  postFilter() {
+    if (this.state.filter === '') return this.state.posts;
+    else return this.state.posts.filter((post) => post.username.includes(this.state.filter));
+  }
   render() {
     return (
       <div className='App'>
-        <SearchBar />
-        <PostContainer posts={this.state.posts} />
+        <SearchBar handleInput={this.handleInput} />
+        <PostContainer posts={this.postFilter()} />
       </div>
     );
   }

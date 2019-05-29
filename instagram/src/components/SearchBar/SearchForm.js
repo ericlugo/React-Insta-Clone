@@ -1,13 +1,13 @@
 import React from 'react';
 
-const searchForm = (props) => {
+const SearchForm = (props) => {
   return (
     <div className='search'>
       <form>
-        <input type='text' placeholder='Search' />
+        <input type='text' placeholder='Search' onChange={props.handleInput} />
       </form>
     </div>
   );
 };
 
-export default searchForm;
+export default SearchForm;

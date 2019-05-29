@@ -1,24 +1,18 @@
 import React from 'react';
-import Branding from './branding';
-import SearchForm from './searchForm';
-import ActionButtons from './actionButtons';
+import Branding from './Branding';
+import SearchForm from './SearchForm';
+import ActionButtons from './ActionButtons';
 
-class searchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
-    return (
-      <header className='search-bar'>
-        <div className='container'>
-          <Branding />
-          <SearchForm />
-          <ActionButtons />
-        </div>
-      </header>
-    );
-  }
-}
+const SearchBar = (props) => {
+  return (
+    <header className='search-bar'>
+      <div className='container'>
+        <Branding />
+        <SearchForm handleInput={props.handleInput} />
+        <ActionButtons />
+      </div>
+    </header>
+  );
+};
 
-export default searchBar;
+export default SearchBar;
