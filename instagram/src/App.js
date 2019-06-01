@@ -5,9 +5,10 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faCompass, faHeart, faUser, faComment, faShareSquare, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faSearch, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
-import dummyData from './assets/dummy-data';
+import PostsPage from './components/PostsContainer/PostsPage';
+import LoginPage from './components/Login/Login';
+import withAuthenticate from './components/Authentication/withAuthenticate';
+
 import './App.sass';
 
 library.add(
@@ -23,31 +24,17 @@ library.add(
   // more icons can go here as needed
 );
 
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
+
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      filter: '',
-      posts: [],
-    };
-  }
-  componentDidMount() {
-    this.setState({
-      posts: dummyData,
-    });
-  }
-  handleInput = (event) => {
-    this.setState({ filter: event.target.value });
-  };
-  postFilter() {
-    if (this.state.filter === '') return this.state.posts;
-    else return this.state.posts.filter((post) => post.username.includes(this.state.filter));
+    this.state = {};
   }
   render() {
     return (
       <div className='App'>
-        <SearchBar handleInput={this.handleInput} />
-        <PostContainer posts={this.postFilter()} />
+        <ComponentFromWithAuthenticate />
       </div>
     );
   }
