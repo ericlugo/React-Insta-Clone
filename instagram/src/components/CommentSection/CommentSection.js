@@ -23,7 +23,7 @@ class CommentSection extends React.Component {
   };
   render() {
     return (
-      <section className='comment-section'>
+      <section>
         {this.state.comments.map((comment, index) => (
           <Comment key={index} comment={comment} />
         ))}

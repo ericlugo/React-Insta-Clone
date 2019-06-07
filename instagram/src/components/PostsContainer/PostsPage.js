@@ -25,7 +25,7 @@ class PostsPage extends React.Component {
   }
   render() {
     return (
-      <div className='posts-page'>
+      <div>
         <SearchBar handleInput={this.handleInput} />
         <PostContainer posts={this.postFilter()} />
       </div>

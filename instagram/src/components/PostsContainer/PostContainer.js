@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Post from './Post';
+
+const PostWrapper = styled.div`
+  margin-top: 1.6rem;
+`;
 
 const PostContainer = (props) => {
   let posts = props.posts;
   return (
-    <div className='post-container'>
+    <PostWrapper>
       {posts.map((post, index) => (
         <Post key={index} post={post} />
       ))}
-    </div>
+    </PostWrapper>
   );
 };
 

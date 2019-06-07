@@ -1,8 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import PostHeader from './PostHeader';
 import CommentSection from '../CommentSection/CommentSection';
 import LikeSection from './LikeSection';
+
+const PostCard = styled.section`
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  color: #000000;
+  display: block;
+  position: relative;
+  margin: 1.6rem auto 3.2rem;
+  max-width: 60rem;
+`;
+const PostImage = styled.div`
+  img {
+    height: 60rem;
+    width: 100%;
+  }
+`;
 
 class Post extends React.Component {
   constructor(props) {
@@ -17,12 +35,14 @@ class Post extends React.Component {
   };
   render() {
     return (
-      <section className='card post'>
+      <PostCard>
         <PostHeader thumbnailUrl={this.props.post.thumbnailUrl} username={this.props.post.username} />
-        <img src={this.props.post.imageUrl} alt='content' className='post-image' />
+        <PostImage>
+          <img src={this.props.post.imageUrl} alt='content' />
+        </PostImage>
         <LikeSection incrementLikes={this.incrementLikes} likes={this.state.likes} />
         <CommentSection comments={this.props.post.comments} timestamp={this.props.post.timestamp} />
-      </section>
+      </PostCard>
     );
   }
 }

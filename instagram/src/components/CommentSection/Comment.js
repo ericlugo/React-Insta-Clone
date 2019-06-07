@@ -1,10 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CommentEntry = styled.p`
+  font-size: 1.6rem;
+  text-align: left;
+  padding: 0.8rem 1.6rem 0;
+  span {
+    font-weight: 600;
+  }
+`;
 
 const Comment = (props) => {
   return (
-    <p className='comment'>
+    <CommentEntry>
       <span>{props.comment.username}</span> {props.comment.text}
-    </p>
+    </CommentEntry>
   );
 };
 
